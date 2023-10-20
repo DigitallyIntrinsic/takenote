@@ -65,3 +65,10 @@ app.post("/api/notes", (req, res) => {
         text: text,
         id: uniqid(),
       };
+
+      readThenAppendToJson(newNote, "./db/db.json");
+
+      const response = {
+        status: "success",
+        body: newNote,
+      };
