@@ -18,7 +18,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("./public"));
 
-// Uses get command to return the index.html file
+// Uses get command for route to return the index.html file
 app.get("/", (req, res) =>
   res.sendFile(path.join(__dirname, "./public/index.html"))
+);
+
+// Uses get command for route to return the notes.html file
+app.get("/notes", (req, res) =>
+  res.sendFile(path.join(__dirname, "./public/notes.html"))
 );
