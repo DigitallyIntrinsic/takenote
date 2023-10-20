@@ -6,3 +6,5 @@ const fs = require("fs");
 const path = require("path");
 // Helper method for generating ids specific to each object
 const uniqid = require("uniqid");
+// Determine which port will be used
+const PORT = process.env.PORT || 3001;
