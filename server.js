@@ -83,3 +83,14 @@ app.post("/api/notes", (req, res) => {
 app.delete("/api/notes/:id", (req, res) => {
     let id = req.params.id;
     let parsedData;
+    fs.readFile("./db/db.json", "utf8", (err, data) => {
+        if (err) {
+            console.error(err);
+        } else {
+            parsedData = JSON.parse(data);
+            const filterData = parsedData.filter((note) => note.id !== id);
+            writeNewNoteToJson("./db/db.json", filterData);
+        }
+    });
+    res.send(`Deleted note with ${req.params.id}`);
+});
