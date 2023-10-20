@@ -55,3 +55,13 @@ const writeNewNoteToJson = (destination, content) =>
   fs.writeFile(destination, JSON.stringify(content, null, 4), (err) =>
     err ? console.error(err) : console.info(`\nData written to ${destination}`)
   );
+
+  // Post route -> receives a new note, saves it to request body, adds it to the db.json file, and then returns the new note to the client
+app.post("/api/notes", (req, res) => {
+    const { title, text } = req.body;
+    if (title && text) {
+      const newNote = {
+        title: title,
+        text: text,
+        id: uniqid(),
+      };
