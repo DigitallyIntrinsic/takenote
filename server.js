@@ -30,4 +30,9 @@ app.get("/notes", (req, res) =>
 
 // Get route -> which reads the db.json file and sends back the parsed JSON data
 app.get("/api/notes", function (req, res) {
-    fs.readFile("./db/db.json", "utf8", (err, data) =>
+    fs.readFile("./db/db.json", "utf8", (err, data) => {
+        var jsonData = JSON.parse(data);
+        console.log(jsonData);
+        res.json(jsonData);
+      });
+    });
