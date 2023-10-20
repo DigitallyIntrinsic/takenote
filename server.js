@@ -94,3 +94,8 @@ app.delete("/api/notes/:id", (req, res) => {
     });
     res.send(`Deleted note with ${req.params.id}`);
 });
+
+// Used for local server start up and recognition
+app.listen(PORT, () =>
+  console.log(`App listening at http://localhost:${PORT}`)
+);
