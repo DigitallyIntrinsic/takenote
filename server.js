@@ -20,12 +20,12 @@ app.use(express.static("./public"));
 
 // Uses get command for route to return the index.html file
 app.get("/", (req, res) =>
-  res.sendFile(path.join(__dirname, "./public/index.html"))
+    res.sendFile(path.join(__dirname, "./public/index.html"))
 );
 
 // Uses get command for route to return the notes.html file
 app.get("/notes", (req, res) =>
-  res.sendFile(path.join(__dirname, "./public/notes.html"))
+    res.sendFile(path.join(__dirname, "./public/notes.html"))
 );
 
 // Get route -> which reads the db.json file and sends back the parsed JSON data
@@ -34,5 +34,11 @@ app.get("/api/notes", function (req, res) {
         var jsonData = JSON.parse(data);
         console.log(jsonData);
         res.json(jsonData);
-      });
     });
+});
+
+// Reads the newly created notes from the request body and then adds them to the db.json file
+const readThenAppendToJson = (content, file) => {
+    fs.readFile(file, "utf8", (err, data) => {
+        if (err) {
+            console.error(err);
