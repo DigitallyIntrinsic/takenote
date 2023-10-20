@@ -4,3 +4,5 @@ const express = require("express");
 const fs = require("fs");
 // import path module
 const path = require("path");
+// Helper method for generating ids specific to each object
+const uniqid = require("uniqid");
