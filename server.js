@@ -12,3 +12,6 @@ const PORT = process.env.PORT || 3001;
 
 // Creates a new app with the express pkg
 const app = express();
+
+// create the middleware functions to handle data parsing
+app.use(express.json());
