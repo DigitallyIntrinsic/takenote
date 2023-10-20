@@ -165,6 +165,8 @@ const renderNoteList = async (notes) => {
     noteListItems.push(li);
   });
 
+  console.log(noteListItems);
+
   if (window.location.pathname === '/notes') {
     noteListItems.forEach((note) => noteList[0].append(note));
   }
