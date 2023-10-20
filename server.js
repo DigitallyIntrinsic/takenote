@@ -15,3 +15,4 @@ const app = express();
 
 // create the middleware functions to handle data parsing
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
