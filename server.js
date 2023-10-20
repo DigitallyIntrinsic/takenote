@@ -27,3 +27,7 @@ app.get("/", (req, res) =>
 app.get("/notes", (req, res) =>
   res.sendFile(path.join(__dirname, "./public/notes.html"))
 );
+
+// Get route -> which reads the db.json file and sends back the parsed JSON data
+app.get("/api/notes", function (req, res) {
+    fs.readFile("./db/db.json", "utf8", (err, data) =>
